@@ -36,11 +36,8 @@ public class Deque<Item> implements Iterable<Item> {
     public void addLast(Item item)
     {   
         Node last=new Node();
-        for(Node x=first; ; )
-        {if(x==null)
-            last=x;
-            break;
-        }
+        for(Node x=first;x!=null ; x=x.next) 
+        last=x;
         Node lastButOne=new Node();
         lastButOne=last;
         last=new Node();
@@ -61,11 +58,8 @@ public class Deque<Item> implements Iterable<Item> {
     public Item removeLast()
     {
         Node lastNode=new Node();
-        for(Node x=first; ; x=x.next)
-        {if(x==null)
-           {lastNode=x;
-            break;} 
-        }
+        for(Node x=first;x!=null;x=x.next) 
+        lastNode=x; 
         n--;
         Item lastItem=lastNode.item;
         return lastItem ;
@@ -106,8 +100,10 @@ public class Deque<Item> implements Iterable<Item> {
         dq.addLast(100);
         dq.removeFirst();
         dq.addLast(1000);
+        dq.addFirst(60);
         dq.removeLast();
         dq.addFirst(250);
+        System.out.println(dq.size());
     }
 }
 
