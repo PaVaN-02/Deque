@@ -61,11 +61,8 @@ public class Deque<Item> implements Iterable<Item> {
     public Item removeLast()
     {
         Node lastNode=new Node();
-        for(Node x=first; ; x=x.next)
-        {if(x==null)
-           {lastNode=x;
-            break;} 
-        }
+        for(Node x=first;x!=null;x=x.next) 
+        lastNode=x; 
         n--;
         Item lastItem=lastNode.item;
         return lastItem ;
